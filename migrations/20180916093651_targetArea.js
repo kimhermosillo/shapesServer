@@ -1,10 +1,10 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('shapes', function(table) {
+  return knex.schema.createTable('TargetArea', function(table) {
     table.increments()
-    table.text('targetArea')
+    table.text('TargetArea')
   })
 }
   
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('shapes')
+  return knex.schema.dropTable('TargetArea')
 }
