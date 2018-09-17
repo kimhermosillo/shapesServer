@@ -16,17 +16,17 @@ app.listen(port)
   .on('error', console.error.bind(console))
   .on('listening', console.log.bind(console, 'trappin outta' + port))
 
-
-
-app.get('/TargetArea', (request, response, next) => {
-  console.log('TargetArea')
-  queries
-    .listTargetArea()
-    .then(TargetArea => {
-      response.json({ TargetArea })
+app.get('/shapes', (request, response, next) => {
+  console.log('is this working or notttttt')
+  queries.list()
+    .then(shapes => {
+      response.json({ shapes })
     })
     .catch(next)
 })
+
+
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found')

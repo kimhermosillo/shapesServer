@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/shapes',
+    connection: 'postgres://localhost:/shapes',
   },
   
   
