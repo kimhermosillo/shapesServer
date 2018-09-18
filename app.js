@@ -16,15 +16,23 @@ app.listen(port)
   .on('error', console.error.bind(console))
   .on('listening', console.log.bind(console, 'trappin outta' + port))
 
-app.get('/shapes', (request, response, next) => {
+app.get('/targetarea', (request, response, next) => {
   console.log('is this working or notttttt')
-  queries.list()
+  queries.listTargetArea()
     .then(shapes => {
       response.json({ shapes })
     })
     .catch(next)
 })
 
+app.get('/workouts', (request, response, next) => {
+  console.log('pls work also lol')
+  queries.listWorkouts()
+    .then(shapes => {
+      response.json({ shapes })
+    })
+    .catch(next)
+})
 
 
 // catch 404 and forward to error handler
@@ -33,6 +41,7 @@ app.use((req, res, next) => {
   err.status = 404
   next(err)
 })
+
 //error handler
 app.use((err, req, res, next) => {
   res
@@ -42,10 +51,6 @@ app.use((err, req, res, next) => {
       error: req.app.get('env') === 'development' ? err.stack: {},
     })
 })
-
-
-
-
 
 /*
 app.get('/TargetArea/:id', (request, response, next) => {
